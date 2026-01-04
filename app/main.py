@@ -3,7 +3,6 @@ from typing import List, Dict, Any
 from fastapi import FastAPI, HTTPException, Header
 from pydantic import BaseModel
 from dotenv import load_dotenv
-
 from app.loaders import load_registry
 from app.inference import validate_window, out_of_range_flags, predict_next
 
@@ -14,7 +13,6 @@ MODEL_BASE_DIR = os.getenv("MODEL_BASE_DIR", "")
 PRELOAD_MODELS = os.getenv("PRELOAD_MODELS", "true").lower() == "true"
 
 app = FastAPI(title="Prediksi Bawang Merah - FastAPI", version="0.1.0")
-
 registry = load_registry(MODEL_BASE_DIR)
 
 if PRELOAD_MODELS:
